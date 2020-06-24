@@ -1,0 +1,102 @@
+// .section-form {
+//   padding: 16rem 0 8rem 0;
+
+//   .contact-us {
+//     background: $color-white;
+//     padding: 4rem 2rem;
+//     width: 40%;
+//     border: 1px solid $color-main-1;
+//     border-radius: 6px;
+
+//     .form-box {
+//       position: relative;
+
+//       .label {
+//         z-index: 5;
+//         position: absolute;
+//         top: 50%;
+//         transform: translateY(-50%)
+//       }
+
+//       .input {
+//         width: 100%;
+//         border: 0px;
+//         border-bottom: 1px solid $color-light-grey-1;
+//         outline-color: none;
+//         padding: .7rem 0;
+//         display: inline-block;
+
+//         &:focus {
+//           outline: none;
+//         }
+//       }
+//     }
+//   }
+// }
+
+.section-form {
+  padding: 16rem 0 8rem 0;
+  background-image: radial-gradient(circle, $color-main-1 0%, $color-main-2 100%);
+  .contact-us {
+    background: $color-white;
+    padding: 4rem 2rem;
+    width: 40%;
+    border: 1px solid $color-main-1;
+    border-radius: 6px;
+
+    @include respond(tab-port) { // width < 900?
+      width: 90%;
+    }
+
+    .heading-primary {
+      color: $color-main-2;
+    }
+
+    .form-para {
+      color: $color-main-2;
+      font-size: 2.5rem;
+    }
+
+    .form-box {
+      margin:2rem 0;
+      position:relative;
+      display:inline-block;
+      width: 100%;
+
+      .label {
+        padding:1rem;
+        pointer-events: none;
+        position:absolute;
+        left:0;
+        top:0;
+        transition: 0.2s;
+        transition-timing-function: ease;
+        transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+        color: $color-light-grey-1;
+        font-size: 1.6rem;
+      }
+  
+      .input {
+        padding:1rem 0;
+        width: 100%;
+        border: 0px;
+        border-bottom: 1px solid $color-light-grey-1;
+  
+        &:focus {
+          outline: 0px;
+        }
+      }
+  
+      .input:focus + .label, .input:not(:placeholder-shown) + .label {
+        opacity:1;
+        transform: scale(0.75) translateY(-100%) translateX(-3rem);
+      }
+  
+      /* For IE Browsers*/
+      .input:focus + .label, .input:not(:-ms-input-placeholder) + .label {
+        opacity:1;
+        transform: scale(0.75) translateY(-100%) translateX(-3rem);
+      }
+    }
+  }
+}
